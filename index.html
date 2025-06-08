@@ -90,10 +90,69 @@
 
         }
 
+        .before-after-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
         .before-after {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .before-after img {
+            flex: 0 0 auto;
+            height: 300px;
+            border-radius: 12px;
+            scroll-snap-align: start;
+        }
+
+        /* Тонкие стрелки, как в сертификатах */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #ffd50c;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1;
+            padding: 4px 8px;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+
+        .scroll-btn:hover {
+            opacity: 1;
+        }
+
+        .scroll-btn.left {
+            left: 0;
+        }
+
+        .scroll-btn.right {
+            right: 0;
+        }
+
+        /* Тонкий скроллбар */
+        .before-after::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .before-after::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+
+        .before-after::-webkit-scrollbar-thumb {
+            background: #ffd50c;
+            border-radius: 4px;
         }
 
         .section-title {
@@ -120,6 +179,72 @@
             height: 280px;
             border-radius: 10px;
             margin-right: 10px;
+        }
+
+        .certificates-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .certificates {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .certificates img {
+            flex: 0 0 auto;
+            height: 180px;
+            border-radius: 8px;
+            scroll-snap-align: start;
+        }
+
+        /* Стрелки уже есть, добавим только классы для уникальности */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #ffd50c;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1;
+            padding: 4px 8px;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+
+        .scroll-btn:hover {
+            opacity: 1;
+        }
+
+        .cert-left {
+            left: 0;
+        }
+
+        .cert-right {
+            right: 0;
+        }
+
+        /* Тонкий скроллбар */
+        .certificates::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .certificates::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+
+        .certificates::-webkit-scrollbar-thumb {
+            background: #ffd50c;
+            border-radius: 4px;
         }
 
         .footer {
@@ -218,8 +343,7 @@
         .program-content h3 {
             font-size: 16px;
             margin-bottom: 8px;
-            color: #ffd50c;
-            /* заголовок */
+            color: #ffd50c
         }
 
         .program-content .btn {
@@ -281,7 +405,6 @@
 
         .popup-content::-webkit-scrollbar-track {
             background-color: #1c1c1c;
-            /* графитовый фон */
         }
 
         /* Для Firefox */
@@ -375,6 +498,132 @@
                 height: auto;
             }
         }
+
+        .reviews-section {
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+
+        .reviews-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+        }
+
+        .reviews img,
+        .reviews video {
+            height: 200px;
+            border-radius: 12px;
+            border: 2px solid #ffd50c;
+            flex-shrink: 0;
+            object-fit: cover;
+            max-width: 300px;
+        }
+
+        .reviews video {
+            background-color: #000;
+        }
+
+        .scroll-btn.review-left,
+        .scroll-btn.review-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffd50c;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px 12px;
+            z-index: 1;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .scroll-btn.review-left:hover,
+        .scroll-btn.review-right:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .scroll-btn.review-left {
+            left: 0;
+        }
+
+        .scroll-btn.review-right {
+            right: 0;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+
+            .reviews img,
+            .reviews video {
+                height: 160px;
+                max-width: 220px;
+            }
+        }
+
+        .certificates img,
+        .reviews img,
+        .reviews video,
+        .before-after img {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .certificates img:hover,
+        .reviews img:hover,
+        .reviews video:hover,
+        .before-after img:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .media-popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .media-popup-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .media-popup img,
+        .media-popup video {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+            border-radius: 12px;
+        }
+
+        .media-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 36px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -407,11 +656,20 @@
             </ul>
         </div>
 
-        <div class="before-after">
-            <img src="before1.jpg" alt="До" />
-            <img src="after1.jpg" alt="После" />
-            <img src="before2.jpg" alt="До" />
-            <img src="after2.jpg" alt="После" />
+        <div class="before-after-wrapper">
+            <button class="scroll-btn left">&#10094;</button>
+
+            <div class="before-after">
+                <img src="beforeafter1.jpeg" alt="До" />
+                <img src="beforeafter2.jpeg" alt="До" />
+                <img src="beforeafter3.jpeg" alt="До" />
+                <img src="beforeafter4.jpeg" alt="До" />
+                <img src="beforeafter5.jpeg" alt="До" />
+                <img src="beforeafter6.jpeg" alt="До" />
+                <img src="beforeafter7.jpeg" alt="До" />
+            </div>
+
+            <button class="scroll-btn right">&#10095;</button>
         </div>
         <!-- 
         <div class="services text-block">
@@ -610,7 +868,7 @@
                 <li>– Настоящая дисциплина и структура</li>
                 <li>– Мотивация, уверенность, результаты в зеркале</li>
                 <p>Ты выполняешь — я веду. 100% вовлечённости от тебя и от меня.</p>
-                <p><strong>💰 Цена: 800₪ → 560₪ (скидка 30%) Это всего 70₪ в неделю зXа 100% вовлечённость тренера
+                <p><strong>💰 Цена: 800₪ → 560₪ (скидка 30%) Это всего 70₪ в неделю за 100% вовлечённость тренера
             </div></strong></p>
         </div>
 
@@ -638,17 +896,33 @@
 
                 <ul><strong>💬 Формат:</strong></ul>
                 <li> 📱 Онлайн: WhatsApp / Telegram / Zoom</li>
-                <li> 📆 1 встреча (до 45 мин) + PDF-анализ на руки</li>
-                <li>🕒 Ответы на уточняющие вопросы в течение 3 дней</li>
-                <p> Хватит гадать, из-за чего вес стоит. Просто посмотри на свой рацион глазами специалиста — и многое
-                    станет очевидным.</p>
+                <p><strong>💰 Стоимость:</strong></p>
+                <p><strong>3 дня — мини-формат для того, чтобы увидеть главные ошибки в питании</strong></p>
+                <ul>100 ₪ (скидка 30%)</ul>
+                <li>• анализ рациона</li>
+                <li>• рекомендации</li>
+                <p><strong>2 недели — полный разбор для того, чтобы изменить пищевые привычки и почувствовать
+                        результат</strong></p>
+                <ul>420 ₪ (скидка почти 25%)</ul>
+                <li>• системный подход</li>
+                <li>• настройка питания</li>
+                <li>• список покупок, режим, поддержка</li>
+                <ul>В обоих вариантах:</ul>
+                <li>✔️ Разбор привычек и целей</li>
+                <li>✔️Индивидуальный рацион </li>
+                <li>✔️Подсчет КБЖУ</li>
+                <li>✔️Поддержка и ответы на вопросы</li>
+                <p>Хватит гадать, из-за чего вес стоит. Просто посмотри на свой рацион глазами специалиста
+                    — и многое станет очевидным.</p>
             </div>
         </div>
 
 
-        <div class="certificates text-block">
-            <h2 class="certificates-title">Сертификаты</h2>
-            <div class="cert-scroll">
+
+        <div class="certificates-wrapper">
+            <button class="scroll-btn left cert-left">&#10094;</button>
+
+            <div class="certificates">
                 <img src="1.jpg" alt="Сертификат 1" />
                 <img src="2.jpg" alt="Сертификат 2" />
                 <img src="3.jpg" alt="Сертификат 3" />
@@ -659,7 +933,27 @@
                 <img src="8.jpg" alt="Сертификат 8" />
                 <img src="9.jpg" alt="Сертификат 9" />
             </div>
+
+            <button class="scroll-btn right cert-right">&#10095;</button>
         </div>
+
+        <section class="reviews-section">
+            <h2>Отзывы</h2>
+            <div class="reviews-wrapper">
+                <button class="scroll-btn left review-left">&#10094;</button>
+
+                <div class="reviews">
+                    <img src="comment1.jpeg" alt="Отзыв 1" />
+                    <img src="comment2.jpeg" alt="Отзыв 2" />
+                    <img src="comment3.jpeg" alt="Отзыв 3" />
+                    <video src="comment5.mp4" controls></video>
+                    <img src="comment4.jpeg" alt="Отзыв 4" />
+                </div>
+
+                <button class="scroll-btn right review-right">&#10095;</button>
+            </div>
+        </section>
+
 
         <div class="footer">
             <div class="social-icons">
@@ -677,6 +971,14 @@
         </div>
     </div>
 
+
+    <div id="media-popup" class="media-popup">
+        <span class="media-popup-close">&times;</span>
+        <div class="media-popup-content">
+            <img id="popup-img" src="" alt="Просмотр" />
+            <video id="popup-video" controls></video>
+        </div>
+    </div>
 
     <script>
         const btns = document.querySelectorAll('.btn[data-popup]');
@@ -702,6 +1004,87 @@
                     popup.style.display = 'none';
                 }
             });
+        });
+    </script>
+    <script>
+        const container = document.querySelector('.before-after');
+        const leftBtn = document.querySelector('.scroll-btn.left');
+        const rightBtn = document.querySelector('.scroll-btn.right');
+
+        leftBtn.addEventListener('click', () => {
+            container.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        rightBtn.addEventListener('click', () => {
+            container.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    </script>
+    <script>
+        // Прокрутка блока ДО-ПОСЛЕ уже есть выше
+
+        const certContainer = document.querySelector('.certificates');
+        const certLeft = document.querySelector('.cert-left');
+        const certRight = document.querySelector('.cert-right');
+
+        certLeft.addEventListener('click', () => {
+            certContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        certRight.addEventListener('click', () => {
+            certContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    </script>
+
+    <script>
+        const reviewContainer = document.querySelector('.reviews');
+        const reviewLeftBtn = document.querySelector('.review-left');
+        const reviewRightBtn = document.querySelector('.review-right');
+
+        reviewLeftBtn.addEventListener('click', () => {
+            reviewContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        reviewRightBtn.addEventListener('click', () => {
+            reviewContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    </script>
+    <script>
+        const popup = document.getElementById("media-popup");
+        const popupImg = document.getElementById("popup-img");
+        const popupVideo = document.getElementById("popup-video");
+        const closeBtn = document.querySelector(".media-popup-close");
+
+        // Слушаем клик по изображениям и видео
+        document.querySelectorAll('.certificates img, .reviews img, .reviews video, .before-after img').forEach(el => {
+            el.addEventListener('click', () => {
+                popup.style.display = 'flex';
+
+                if (el.tagName === 'IMG') {
+                    popupImg.src = el.src;
+                    popupImg.style.display = 'block';
+                    popupVideo.style.display = 'none';
+                } else if (el.tagName === 'VIDEO') {
+                    popupVideo.src = el.src;
+                    popupVideo.style.display = 'block';
+                    popupImg.style.display = 'none';
+                }
+            });
+        });
+
+        // Закрытие попапа
+        closeBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+            popupImg.src = '';
+            popupVideo.src = '';
+        });
+
+        // Закрытие по клику вне медиа
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+                popupImg.src = '';
+                popupVideo.src = '';
+            }
         });
     </script>
 </body>
