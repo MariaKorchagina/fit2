@@ -624,6 +624,26 @@
             font-size: 36px;
             cursor: pointer;
         }
+
+        .media-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background-color: #ffd50c;
+            color: #000;
+            border: none;
+            padding: 10px 16px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 10000;
+            transition: background-color 0.3s ease;
+        }
+
+        .media-popup-close:hover {
+            background-color: #e6bf00;
+        }
     </style>
 </head>
 
@@ -973,7 +993,7 @@
 
 
     <div id="media-popup" class="media-popup">
-        <span class="media-popup-close">&times;</span>
+        <button class="media-popup-close">Закрыть ✖</button>
         <div class="media-popup-content">
             <img id="popup-img" src="" alt="Просмотр" />
             <video id="popup-video" controls></video>
