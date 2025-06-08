@@ -304,12 +304,76 @@
         .programs-list {
             display: flex;
             flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .program-card {
+            background-color: #2c2c2c;
+            /* графит */
+            color: #ffd50c;
+            border-radius: 16px;
+            border: 1px solid #ffd50c;
+            padding: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            flex: 1 1 calc(45% - 20px);
+            max-width: 300px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: scale(1.03);
+        }
+
+        .program-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .program-card ul {
+            padding-left: 20px;
+            margin: 0;
+            list-style-type: disc;
+        }
+
+        .program-card li {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        /* 📱 Мобильные */
+        @media (max-width: 600px) {
+            .program-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .program-card h3 {
+                font-size: 16px;
+            }
+
+            .program-card li {
+                font-size: 13px;
+            }
+
+            .programs-list {
+                padding: 10px;
+                gap: 12px;
+            }
+        }
+
+        /* .programs-list {
+            display: flex;
+            flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
             background-color: #1c1c1c;
             /* графитный фон */
-            padding: 20px;
-            border-radius: 16px;
+        padding: 20px;
+        border-radius: 16px;
         }
 
         .program-card {
@@ -335,7 +399,7 @@
             color: #ffd50c;
         }
 
-        .program-icon {
+        */ .program-icon {
             font-size: 32px;
             margin-bottom: 10px;
         }
@@ -644,6 +708,56 @@
         .media-popup-close:hover {
             background-color: #e6bf00;
         }
+
+        .main-photo-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .main-photo-display {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        #main-photo {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        #main-photo:hover {
+            transform: scale(1.02);
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffd50c;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .main-left {
+            left: 10px;
+        }
+
+        .main-right {
+            right: 10px;
+        }
     </style>
 </head>
 
@@ -658,8 +772,17 @@
             <a href="https://t.me/@lyatskaya" target="_blank" class="btn">Записаться</a>
         </div>
 
-        <div class="photo-section">
+        <!-- <div class="photo-section">
             <img src="trainer2.jpg" alt="Тренер полностью" />
+        </div> -->
+        <div class="main-photo-wrapper">
+            <button class="scroll-btn left main-left">&#10094;</button>
+
+            <div class="main-photo-display">
+                <img id="main-photo" src="trainer2.jpg" alt="Тренер" />
+            </div>
+
+            <button class="scroll-btn right main-right">&#10095;</button>
         </div>
 
         <div class="text-block">
@@ -711,45 +834,40 @@
 
                 <!-- Программа 1 -->
                 <div class="program-card">
-                    <div class="program-icon">💣</div>
                     <div class="program-content">
-                        <h3>Сушка PRO — жиросжигающая Табата + питание</h3>
+                        <h3>💣Сушка PRO — жиросжигающая Табата + питание</h3>
                         <button class="btn" data-popup="popup1">Узнать подробнее</button>
                     </div>
                 </div>
 
                 <!-- Программа 2 -->
                 <div class="program-card">
-                    <div class="program-icon">💪</div>
                     <div class="program-content">
-                        <h3>Стальной пресс — техника, глубина, уверенность</h3>
+                        <h3>💪Стальной пресс — техника, глубина, уверенность</h3>
                         <button class="btn" data-popup="popup2">Узнать подробнее</button>
                     </div>
                 </div>
 
                 <!-- Программа 3 -->
                 <div class="program-card">
-                    <div class="program-icon">🧘‍♀️</div>
                     <div class="program-content">
-                        <h3>Сила в теле — пилатес + питание на тонус</h3>
+                        <h3>🧘‍♀️ Сила в теле — пилатес + питание на тонус</h3>
                         <button class="btn" data-popup="popup3">Узнать подробнее</button>
                     </div>
                 </div>
 
                 <!-- Программа 4 -->
                 <div class="program-card">
-                    <div class="program-icon">🔗</div>
                     <div class="program-content">
-                        <h3>TRX Баланс — рельеф, осанка, гибкость</h3>
+                        <h3>🔗TRX Баланс — рельеф, осанка, гибкость</h3>
                         <button class="btn" data-popup="popup4">Узнать подробнее</button>
                     </div>
                 </div>
 
                 <!-- Программа 5 -->
                 <div class="program-card">
-                    <div class="program-icon">🏋️‍♂️</div>
                     <div class="program-content">
-                        <h3>Супер Качок — зал + полное ведение</h3>
+                        <h3>🏋️‍♂️Супер Качок — зал + полное ведение</h3>
                         <button class="btn" data-popup="popup5">Узнать подробнее</button>
                     </div>
                 </div>
@@ -993,7 +1111,7 @@
 
 
     <div id="media-popup" class="media-popup">
-        <button class="media-popup-close">Закрыть ✖</button>
+        <button class="media-popup-close">✖</button>
         <div class="media-popup-content">
             <img id="popup-img" src="" alt="Просмотр" />
             <video id="popup-video" controls></video>
@@ -1105,6 +1223,28 @@
                 popupImg.src = '';
                 popupVideo.src = '';
             }
+        });
+    </script>
+
+    <script>
+        const photos = [
+            "trainer2.jpg",
+            "trainer1.jpg",
+            "trainer3.jpg",
+            "trainer4.jpg",
+        ];
+
+        let currentIndex = 0;
+        const mainPhoto = document.getElementById("main-photo");
+
+        document.querySelector(".main-left").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+            mainPhoto.src = photos[currentIndex];
+        });
+
+        document.querySelector(".main-right").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % photos.length;
+            mainPhoto.src = photos[currentIndex];
         });
     </script>
 </body>
