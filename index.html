@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             list-style: none;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -71,6 +72,7 @@
             border-radius: 6px;
             font-weight: bold;
             text-decoration: none;
+            margin: 5px;
         }
 
         .btn:hover {
@@ -380,12 +382,7 @@
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             border-radius: 20px;
-            padding: 16px;
             border: 1px solid #ffd50c;
-            /* окантовка */
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
             color: #ffd50c;
         }
 
@@ -747,6 +744,38 @@
         .main-right {
             right: 10px;
         }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-modal-content {
+            max-width: 70%;
+            max-height: 70%;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .close-image-modal {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2100;
+        }
     </style>
 </head>
 
@@ -755,20 +784,26 @@
         <img src="trainer1.jpg" alt="Тренер" class="avatar" />
         <h1 class="center">Лилия</h1>
 
-        <div class="cta">
+        <!-- <div class="cta">
             <p>Запишитесь на бесплатное пробное занятие и получите индивидуальную программу тренировок на неделю с 50%
                 скидкой.</p>
             <a href="https://t.me/@lyatskaya" target="_blank" class="btn">Записаться</a>
+        </div> -->
+
+        <div class="cta">
+            <p> Запишитесь на бесплатное пробное занятие и получите индивидуальную программу тренировок на неделю с 50%
+                скидкой. </p>
+            <div>
+                <a class="btn" href="https://t.me/lyatskaya" target="_blank">Записаться</a>
+                <a class="btn" href="#programs">Мои программы</a>
+            </div>
         </div>
 
-        <!-- <div class="photo-section">
-            <img src="trainer2.jpg" alt="Тренер полностью" />
-        </div> -->
         <div class="main-photo-wrapper">
             <button class="scroll-btn left main-left">&#10094;</button>
 
             <div class="main-photo-display">
-                <img id="main-photo" src="trainer2.jpg" alt="Тренер" />
+                <img id="main-photo" src="trainer5.jpg" alt="Тренер" />
             </div>
 
             <button class="scroll-btn right main-right">&#10095;</button>
@@ -788,34 +823,6 @@
             </ul>
         </div>
 
-        <div class="before-after-wrapper">
-            <button class="scroll-btn left">&#10094;</button>
-
-            <div class="before-after">
-                <img src="beforeafter1.jpeg" alt="До" />
-                <img src="beforeafter2.jpeg" alt="До" />
-                <img src="beforeafter3.jpeg" alt="До" />
-                <img src="beforeafter4.jpeg" alt="До" />
-                <img src="beforeafter5.jpeg" alt="До" />
-                <img src="beforeafter6.jpeg" alt="До" />
-                <img src="beforeafter7.jpeg" alt="До" />
-            </div>
-
-            <button class="scroll-btn right">&#10095;</button>
-        </div>
-        <!-- 
-        <div class="services text-block">
-            <h2>Услуги:</h2>
-            <p><strong>Персональные тренировки:</strong> занятия проходят в удобном для вас месте — будь то тренажёрный
-                зал, ваш дом или на свежем воздухе. Я подбираю оптимальный комплекс упражнений с учётом вашей физической
-                подготовки, целей и графика.</p>
-            <p><strong>Онлайн-тренировки:</strong> если у вас нет возможности посещать тренажёрный зал, я могу проводить
-                тренировки онлайн, с поддержкой и контролем в реальном времени. Мы также можем вместе корректировать
-                программу и давать рекомендации по питанию.</p>
-            <p><strong>Консультации по питанию:</strong> на основе ваших предпочтений и целей я разработаю
-                индивидуальный план питания, который станет идеальным дополнением к тренировкам и поможет достичь лучших
-                результатов.</p>
-        </div> -->
 
         <section class="programs" id="programs">
             <h2 class="section-title">Мои программы</h2>
@@ -1043,7 +1050,21 @@
             </div>
         </div>
 
+        <div class="before-after-wrapper">
+            <button class="scroll-btn left">&#10094;</button>
 
+            <div class="before-after">
+                <img src="beforeafter1.jpeg" alt="До" />
+                <img src="beforeafter2.jpeg" alt="До" />
+                <img src="beforeafter3.jpeg" alt="До" />
+                <img src="beforeafter4.jpeg" alt="До" />
+                <img src="beforeafter5.jpeg" alt="До" />
+                <img src="beforeafter6.jpeg" alt="До" />
+                <img src="beforeafter7.jpeg" alt="До" />
+            </div>
+
+            <button class="scroll-btn right">&#10095;</button>
+        </div>
 
         <div class="certificates-wrapper">
             <button class="scroll-btn left cert-left">&#10094;</button>
@@ -1079,6 +1100,10 @@
                 <button class="scroll-btn right review-right">&#10095;</button>
             </div>
         </section>
+        <div class="image-modal" id="imageModal">
+            <span class="close-image-modal">&times;</span>
+            <img class="image-modal-content" id="modalImage" src="" alt="Full View">
+        </div>
 
 
         <div class="footer">
@@ -1105,6 +1130,7 @@
             <video id="popup-video" controls></video>
         </div>
     </div>
+
 
     <script>
         const btns = document.querySelectorAll('.btn[data-popup]');
@@ -1220,6 +1246,7 @@
             "trainer1.jpg",
             "trainer3.jpg",
             "trainer4.jpg",
+            "trainer6.jpg",
         ];
 
         let currentIndex = 0;
@@ -1233,6 +1260,27 @@
         document.querySelector(".main-right").addEventListener("click", () => {
             currentIndex = (currentIndex + 1) % photos.length;
             mainPhoto.src = photos[currentIndex];
+        });
+
+
+        document.querySelectorAll('.certificates img, .reviews-slider img').forEach(img => {
+            img.addEventListener('click', () => {
+                const modal = document.getElementById("imageModal");
+                const modalImg = document.getElementById("modalImage");
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+            });
+        });
+
+        document.querySelector('.close-image-modal').addEventListener('click', () => {
+            document.getElementById("imageModal").style.display = "none";
+        });
+
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById("imageModal");
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
         });
     </script>
 </body>
