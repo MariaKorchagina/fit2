@@ -10,6 +10,12 @@
 </head>
 
 <body>
+    <div class="lang-switcher">
+        <a href="#" class="lang active">RU</a> |
+        <a href="#" class="lang">EN</a> |
+        <a href="#" class="lang">ES</a> |
+        <a href="#" class="lang">HE</a>
+    </div>
     <div class="container">
         <img src="trainer1.jpg" alt="Тренер" class="avatar" />
         <div class="greeting-block animate-on-scroll">
@@ -28,6 +34,11 @@
                 <li>🤕 Восстановиться после травм (в сотрудничестве с физиотерапевтами)</li>
             </ul>
         </div>
+        <div class="main-cta-btns animate-on-scroll">
+            <button class="btn btn-cta" id="open-signup-modal" type="button">Записаться</button>
+            <button class="btn btn-cta btn-secondary" id="open-schedule-popup" type="button">Расписание</button>
+            <a href="#programs" class="btn btn-cta btn-secondary">Мои программы</a>
+        </div>
 
         <div class="main-photo-wrapper animate-on-scroll">
             <button class="scroll-btn left main-left">&#10094;</button>
@@ -39,7 +50,6 @@
             <button class="scroll-btn right main-right">&#10095;</button>
         </div>
         <section class="programs animate-on-scroll" id="programs">
-            <h2 class="section-title">Мои программы</h2>
             <div class="programs-list">
 
                 <!-- Программа 1 -->
@@ -233,6 +243,7 @@
         <div class="popup popup--6" id="popup6">
             <div class="popup-content">
                 <span class="close">&times;</span>
+                <img src="your-image.jpg" alt="Индивидуальное питание" style="max-width:100%;border-radius:12px;margin-bottom:18px;">
                 <p><strong>Ты не знаешь, от чего поправляешься — ведь ты и так ничего не ешь.</strong></p>
                 <p>Постоянно на диете. Без сладкого. Без хлеба. Иногда даже без сил.</p>
                 <p>Но вес не уходит. Или уходит, а потом возвращается.</p>
@@ -420,9 +431,6 @@
             <video id="popup-video" controls></video>
         </div>
     </div>
-
-    <!-- Фиксированная кнопка 'Записаться' для мобильных -->
-    <button class="fixed-cta-btn" id="open-signup-modal">Записаться</button>
 
     <!-- Модальное окно с формой заявки -->
     <div class="signup-modal" id="signup-modal">
