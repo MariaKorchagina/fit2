@@ -561,8 +561,6 @@ h1 {
     border: 1.5px solid #fe3453;
     position: relative;
     margin: 0 auto;
-    position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -820,12 +818,12 @@ h1 {
     }
     .before-after img,
     .certificates img {
-        height: 320px;
+        height: 380px;
     }
     .reviews img,
     .reviews video {
-        height: 180px;
-        max-width: 260px;
+        height: 220px;
+        max-width: 320px;
     }
     .faq-block {
         padding: 10px 2vw 8px 2vw;
@@ -852,12 +850,12 @@ h1 {
     }
     .before-after img,
     .certificates img {
-        height: 220px;
+        height: 280px;
     }
     .reviews img,
     .reviews video {
-        height: 120px;
-        max-width: 180px;
+        height: 160px;
+        max-width: 200px;
     }
     .greeting-block {
         padding: 10px 4px 8px 8px;
@@ -914,12 +912,12 @@ h1 {
     }
     .before-after img,
     .certificates img {
-        height: 160px;
+        height: 200px;
     }
     .reviews img,
     .reviews video {
-        height: 110px;
-        max-width: 140px;
+        height: 130px;
+        max-width: 160px;
     }
     .faq-block {
         padding: 4px 1px 2px 1px;
@@ -954,12 +952,12 @@ h1 {
     }
     .before-after img,
     .certificates img {
-        height: 110px;
+        height: 140px;
     }
     .reviews img,
     .reviews video {
-        height: 80px;
-        max-width: 110px;
+        height: 100px;
+        max-width: 120px;
     }
     .popup-content {
         padding-top: 28px;
@@ -967,6 +965,12 @@ h1 {
     .faq-block {
         padding: 2px 0 1px 0;
         font-size: 0.9rem;
+    }
+    .lang-switcher {
+        top: 8px;
+        right: 8px;
+        font-size: 0.98em;
+        padding: 4px 8px;
     }
 }
 
@@ -1534,4 +1538,108 @@ h1 {
 }
 .faq-item {
     cursor: pointer;
+}
+
+.lang-switcher {
+    position: fixed;
+    top: 22px;
+    right: 32px;
+    z-index: 2001;
+    background: rgba(24,24,24,0.92);
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(254,52,83,0.10);
+    padding: 8px 18px;
+    font-size: 1.08em;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    user-select: none;
+}
+.lang-switcher .lang {
+    color: #fe3453;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.lang-switcher .lang.active,
+.lang-switcher .lang:hover {
+    background: #fe3453;
+    color: #fff;
+}
+@media (max-width: 600px) {
+    .lang-switcher {
+        top: 8px;
+        right: 8px;
+        font-size: 0.98em;
+        padding: 4px 8px;
+    }
+}
+
+#popup6 .popup-content {
+    max-height: none;
+    min-height: 0;
+    height: auto;
+}
+
+.main-cta-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin: 32px 0 38px 0;
+    flex-wrap: wrap;
+}
+.main-cta-btns .btn-cta {
+    font-size: 1.22rem;
+    font-weight: 800;
+    padding: 18px 38px;
+    border-radius: 24px;
+    background: linear-gradient(90deg, #fe3453 0%, #ff7eb3 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px #fe345355;
+    border: none;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.18s;
+    letter-spacing: 0.04em;
+    margin: 0 6px;
+    position: relative;
+    overflow: hidden;
+}
+.main-cta-btns .btn-cta.btn-secondary {
+    background: linear-gradient(90deg, #ff7eb3 0%, #fe3453 100%);
+    color: #fff;
+    box-shadow: 0 2px 16px #ff7eb355;
+}
+.main-cta-btns .btn-cta:hover, .main-cta-btns .btn-cta:focus {
+    background: linear-gradient(90deg, #ff7eb3 0%, #fe3453 100%);
+    color: #fff;
+    box-shadow: 0 6px 32px #fe3453aa, 0 0 0 4px #ff7eb344;
+    transform: scale(1.06) translateY(-2px);
+}
+@media (max-width: 900px) {
+    .main-cta-btns {
+        gap: 12px;
+        margin: 18px 0 18px 0;
+    }
+    .main-cta-btns .btn-cta {
+        font-size: 1.05rem;
+        padding: 12px 18px;
+        border-radius: 16px;
+    }
+}
+@media (max-width: 600px) {
+    .main-cta-btns {
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0 10px 0;
+    }
+    .main-cta-btns .btn-cta {
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px 0;
+        border-radius: 12px;
+    }
 } 
